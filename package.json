@@ -1,0 +1,19 @@
+{
+  "name": "crypto-daily-bot",
+  "version": "1.0.0",
+  "description": "Daily display crypto coins values for AXS and SLP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henrique Ernandes Rebelo",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "fetch": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
