@@ -52,7 +52,7 @@ async function getDolar() {
 	current = 0
 	return dolarUpdated
 }
-getDolar()
+
 // Create a new client instance
 const client = new Client({ 
 		intents: [
@@ -119,7 +119,7 @@ client.on('messageCreate', 	async (message) => {
 	}
 	if(message.content === 'dolar'){
 		message.reply({
-			content: dolarUpdated
+			content: getDolar()
 		})
 	}
 	if(message.content === 'pizza'){
