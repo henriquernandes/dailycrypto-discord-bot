@@ -6,9 +6,9 @@ dotenv.config();
 let currency = ['usd', 'brl']
 let current = 0
 let reply = ''
-let dolarUpdated = 0;
-let dolar = 0
-let real = 0
+let dolarUpdated = '';
+let dolar = 0;
+let real = 0;
 let coins = {
 	'slp': 'smooth-love-potion',
 	'btc': 'bitcoin',
@@ -118,8 +118,9 @@ client.on('messageCreate', 	async (message) => {
 		})
 	}
 	if(message.content === 'dolar'){
+		dolarUpdated = await getDolar()
 		message.reply({
-			content: getDolar()
+			content: dolarUpdated
 		})
 	}
 	if(message.content === 'pizza'){
