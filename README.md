@@ -5,9 +5,9 @@ Bot that shows daily values from mainly crypto coins games.
 ## Installation
 
 Just clone this repository and change your token o .env file
-
+#
+To Start
 ```bash
-To start
 node index.js or node.
 ```
 
