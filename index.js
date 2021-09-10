@@ -26,30 +26,25 @@ async function priceJSON(z) {
 }
 
 async function getDolar() {
-  while (current < 1) {
     let response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" +
-        currency[current] +
-        "&ids=polychain-monsters"
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=polychain-monsters"
     ).catch((err) => {
       console.log("API call error:", err.message);
     });
+
     let price = await response.json();
     dolar = price[0].current_price;
-    current++;
-  }
-  let response = await fetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" +
-      currency[current] +
-      "&ids=polychain-monsters"
+
+    response = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=brl&ids=polychain-monsters"
   ).catch((err) => {
     console.log("API call error:", err.message);
   });
-  let price = await response.json();
+
+  price = await response.json();
   real = price[0].current_price;
   let result = real / dolar;
   dolarUpdated = "R$ " + result.toFixed("2");
-  current = 0;
   return dolarUpdated;
 }
 
@@ -108,8 +103,9 @@ client.on("messageCreate", async (message) => {
       message.channel.send({ embeds: [pizzaEmbed] });
     }
     else if(args[0] === 'dolaragora'){
+      await getDolar()
       message.reply({
-        content: getDolar()
+        content: dolarUpdated
     });
     }
     else{
