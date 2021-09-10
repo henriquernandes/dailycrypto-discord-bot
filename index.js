@@ -96,11 +96,16 @@ client.on("messageCreate", async (message) => {
       current = 1
       return message.channel.send('Currency update to ' + symbolCurr[current])
     }
-    else if (args[0] === "easteregg") {
-      const user = message.mentions.users.first();
-      message.channel.send({
-        content:"Bora comer uma \n https://i.pinimg.com/originals/36/ce/79/36ce7968e79e2af080a13e8f20895e97.jpg",
-      });
+    else if (args[0] === "easter") {
+      const pizzaEmbed = {
+      color: '#FBFF00',
+      title: 'Pizzazona meio a meio',
+      description:':pizza:',
+      image: {
+        url: 'https://i.pinimg.com/originals/36/ce/79/36ce7968e79e2af080a13e8f20895e97.jpg',
+      }
+    }
+      message.channel.send({ embeds: [pizzaEmbed] });
     }
     else{
       message.reply({
