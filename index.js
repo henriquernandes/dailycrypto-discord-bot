@@ -59,12 +59,6 @@ client.once("ready", () => {
 });
 
 client.on("messageCreate", async (message) => {
-  if (message.content === "!v") {
-    message.reply({
-      content:
-        "Comandos disponiveis para consulta de valores: " + coins,
-    });
-  }
   if (!message.content.startsWith(prefix) || message.author.bot) return
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -83,6 +77,12 @@ client.on("messageCreate", async (message) => {
         });
       }
     }
+    else if(args[0] === 'comandos'){
+      return message.channel.send('Comandos disponiveis utilizar prefixo !v + comando\n'
+      +'Funciona com todas criptomoedas utilizando o prefixo das mesmas caso queria saber valor de certa quantidade adicionar quantidade após espaço'
+      +'\nExemplo !v btc 5 ou apenas individual !v btc'
+      +'\nPara trocar a moeda para dolar utilizar !v dolar e para voltar ao real !v real')
+    }
     else if(args[0] === 'real'){
       current = 0
       return message.channel.send('Currency update to ' + symbolCurr[current])
@@ -91,7 +91,7 @@ client.on("messageCreate", async (message) => {
       current = 1
       return message.channel.send('Currency update to ' + symbolCurr[current])
     }
-    else if (args[0] === "easter") {
+    else if (args[0] === 'easter') {
       const pizzaEmbed = {
       color: '#FBFF00',
       title: 'Pizzazona meio a meio',
