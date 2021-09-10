@@ -107,6 +107,11 @@ client.on("messageCreate", async (message) => {
     }
       message.channel.send({ embeds: [pizzaEmbed] });
     }
+    else if(args[0] === 'dolaragora'){
+      message.reply({
+        content: getDolar()
+    });
+    }
     else{
       message.reply({
         content: 'Crypto not found or command invalid'
