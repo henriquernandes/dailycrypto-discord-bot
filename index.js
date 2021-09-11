@@ -81,6 +81,7 @@ client.on("messageCreate", async (message) => {
 
   if (command === "v") {
     if (!args.length) return;
+    console.log(message.member.user.tag + ' used ' + args[0]);
     if (args[0] === "comandos") {
       return message.channel.send(
         "Comandos disponiveis utilizar prefixo !v + comando\n" +
