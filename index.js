@@ -116,7 +116,7 @@ client.on("messageCreate", async (message) => {
             symbolCurr[current] +
             " " +
             (result.current_price * args[1]).toFixed(6) +
-            " for " + args[1] +
+            " for " + args[1] + ' ' +
             result.name,
         });
       } else if (result === "API Failed") {
