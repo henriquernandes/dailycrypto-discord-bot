@@ -5,7 +5,7 @@ dotenv.config();
 
 const prefix = "!";
 let currency = ["brl", "usd"];
-let symbolCurr = ["R$", "U$"];
+let symbolCurr = ["R$ ", "U$ "];
 let current = 0;
 let reply = "";
 let dolarUpdated = "";
@@ -81,7 +81,7 @@ client.on("messageCreate", async (message) => {
 
   if (command === "v") {
     if (!args.length) return;
-    console.log(message.member.user.tag + ' used ' + args[0]);
+    console.log(message.member.user.tag + ' requested ' + args[0] + ' ' +  (args[1] != undefined ? args[1] : ''));
     if (args[0] === "comandos") {
       return message.channel.send(
         "Comandos disponiveis utilizar prefixo !v + comando\n" +
@@ -112,26 +112,32 @@ client.on("messageCreate", async (message) => {
       });
     } else if (await priceJSON(args[0])) {
       if (args[1] != "" && args[1] != undefined) {
-        message.reply({
-          content:
-            symbolCurr[current] +
-            " " +
-            (result.current_price * args[1]).toFixed(6) +
-            " for " + args[1] + ' ' +
-            result.name,
+        const res = {
+          title: symbolCurr[current] + ((result.current_price * args[1]).toFixed(6)).toString(),
+          color: "#FFF300",
+          footer: {
+            text: result.name,
+            icon_url: result.image
+          },
+        };
+        message.channel.send({
+          embeds: [res]
         });
       } else if (result === "API Failed") {
         message.reply({
           content: "API Failed",
         });
       } else {
+        const res = {
+          title: symbolCurr[current] + result.current_price.toString(),
+          color: "#FFF300",
+          footer: {
+            text: result.name,
+            icon_url: result.image
+          },
+        };
         message.reply({
-          content:
-            symbolCurr[current] +
-            " " +
-            result.current_price +
-            " for " +
-            result.name,
+          embeds: [res]
         });
       }
     } else {
