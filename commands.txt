@@ -1,0 +1,22 @@
+commands for install node 16 if bot goes down
+
+Node.js 16 on replit
+Steps:
+
+Execute this script on the shell to install node (you can choose the version by editing the number 16) and configure npm.
+
+npm init -y && npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH
+
+Create the .replit to execute node from the shell instead of the console.
+
+run="npm start"ni
+
+
+Make sure to add the start script in your package.json file
+
+  "scripts": {
+    "start": "node ."
+  }
+  
+(Optional) If you had packages like canvas or sqlite before, you need to re-install those packages
+npm uninstall canvas && npm i canvas

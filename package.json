@@ -4,16 +4,28 @@
   "description": "Daily display crypto coins values for AXS and SLP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Henrique Ernandes Rebelo",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "fetch": "^1.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
-  }
+    "eslint": "^7.32.0",
+    "node": "^16.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriquernandes/dailycrypto-discord-bot.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/henriquernandes/dailycrypto-discord-bot/issues"
+  },
+  "homepage": "https://github.com/henriquernandes/dailycrypto-discord-bot#readme"
 }

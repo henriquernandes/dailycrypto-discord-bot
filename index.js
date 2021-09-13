@@ -1,7 +1,6 @@
-const dotenv = require("dotenv");
 const fetch = require("node-fetch");
 const { Client, Intents, MessageEmbed } = require("discord.js");
-dotenv.config();
+const keepAlive = require('./server.js');
 
 const prefix = "!";
 let currency = ["brl", "usd"];
@@ -149,4 +148,5 @@ client.on("messageCreate", async (message) => {
 });
 
 // Login to Discord with your client's token
+keepAlive();
 client.login(process.env.TOKEN);
